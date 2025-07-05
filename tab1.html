@@ -1,3 +1,373 @@
 <div class="row">
-  <div class="col-md-12">a</div>
+  <div class="col-md-12">
+    <h3>Danh sách khách mời</h3>
+    <input type="hidden" value="1" id="hfId">
+  </div>
+  <div class="col-md-12 mb-3">
+    <div class="input-group">
+      <input type="text" class="form-control" value="" placeholder="Nhập tên..." id="txtKeyword">
+      <button type="button" class="btn btn-primary" id="btnSearch">Tìm kiếm</button>
+    </div>
+  </div>
+  <div class="col-md-12 mb-3">
+    <button class="btn btn-info w-100" disabled="true" id="lbTong">Tổng</button>
+  </div>
+  <div class="col-md-12 mb-3">
+    <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
+      <!-- <input type="checkbox" class="btn-check" id="btnNhaTrai" autocomplete="off"> -->
+      <input type="radio" class="btn-check" name="nha" id="btnNhaTrai" autocomplete="off">
+      <label class="btn btn-outline-primary" id="lbNhaTrai" for="btnNhaTrai">Nhà Trai</label>
+
+      <!-- <input type="checkbox" class="btn-check" id="btnNhaGai" autocomplete="off"> -->
+      <input type="radio" class="btn-check" name="nha" id="btnNhaGai" autocomplete="off">
+      <label class="btn btn-outline-primary" id="lbNhaGai" for="btnNhaGai">Nhà gái</label>
+    </div>
+  </div>
+  <div class="col-md-12 mb-3">
+    <div id="group-btnNhaTrai" class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="btnQuang" autocomplete="off">
+      <label class="btn btn-outline-success" id="lbQuang" for="btnQuang">Quang</label>
+
+      <input type="checkbox" class="btn-check" id="btnBa" autocomplete="off">
+      <label class="btn btn-outline-success" id="lbBa" for="btnBa">Ba</label>
+
+      <input type="checkbox" class="btn-check" id="btnNhaTrang" autocomplete="off">
+      <label class="btn btn-outline-success" id="lbNhaTrang" for="btnNhaTrang">Nha Trang</label>
+
+      <input type="checkbox" class="btn-check" id="btnDongNai" autocomplete="off">
+      <label class="btn btn-outline-success" id="lbDongNai" for="btnDongNai">Đồng Nai</label>
+
+      <input type="checkbox" class="btn-check" id="btnHangXom" autocomplete="off">
+      <label class="btn btn-outline-success" id="lbHangXom" for="btnHangXom">Hàng xóm</label>
+    </div>
+    <!-- <div id="group-btnNhaGai" class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="btnVy" autocomplete="off">
+      <label class="btn btn-outline-success" for="btnVy">Vy</label>
+    </div> -->
+  </div>
+  <div class="col-md-12 mb-3">
+    <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="btnGiaDinh" autocomplete="off">
+      <label class="btn btn-outline-danger" id="lbGiaDinh" for="btnGiaDinh">Gia đình</label>
+
+      <input type="checkbox" class="btn-check" id="btnDongNghiep" autocomplete="off">
+      <label class="btn btn-outline-danger" id="lbDongNghiep" for="btnDongNghiep">Đồng nghiệp</label>
+
+      <input type="checkbox" class="btn-check" id="btnBan" autocomplete="off">
+      <label class="btn btn-outline-danger" id="lbBan" for="btnBan">Bạn</label>
+    </div>
+  </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Stt</th>
+                  <th>Mối quan hệ</th>
+                  <th>Họ và tên</th>
+                </tr>
+              </thead>
+              <tbody id="body1">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    var listQuy = [
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Luân', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Thiện', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Hiển', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Nam', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Tài', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Quân', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Phú', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Thịnh', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Phượng', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'VM Group', 'name': 'Thái/Nhân', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Đức', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Tiến', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Quý', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Lợi', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Tuấn', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'anh Khôi', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Mỹ', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Chồng Mỹ', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Diều', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Vợ Diều', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Mãn', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Thảo', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Nhật', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Lợi', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Huy', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Sang', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Nhân', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Thuận', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'Hùng', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Bạn chú rể', 'code': 'Bạn cấp 2 + 3', 'name': 'vợ Hùng', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Việt', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Phong', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Tiến', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Hùng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Phát', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Trung', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Cường', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Sang', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Đức', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'Phương', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'Đạt', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'Hoa', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'Minh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'Tường', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'Kiệt', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'c Linh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'chị Phương Anh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp A', 'name': 'a Đạt', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'Huy', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'Tâm', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'Hưng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'An', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'a Hải', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'a Minh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'a Giang', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'a Hồng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'anh Sang', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'anh Tánh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp S', 'name': 'chị Hà', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp TD', 'name': 'chị Mai', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp TD', 'name': 'chị Trúc', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp TD', 'name': 'chị Hạ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp TD', 'name': 'chị Nhi', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp TD', 'name': 'chị Ý', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp TD', 'name': 'chị Ly', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp TD', 'name': 'chị Chương', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp cũ', 'name': 'Nhi', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp cũ', 'name': 'Đăng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp cũ', 'name': 'a Hào', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp cũ', 'name': 'a Dương Sang', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp cũ', 'name': 'a Hiếu', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp cũ', 'name': 'a Tấn', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Đồng nghiệp chú rể', 'code': 'Đồng nghiệp cũ', 'name': 'c Phượng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnQuang' },
+    ];
+    var listVy = [
+      {'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'A Hải', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'a Nhật', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'a Hùng', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Anh Tuân', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Anh Nhân', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Anh Chiến', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Anh Tú', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'c Vân', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'c Diên', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'c Hiền', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'c Nhi', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'c Tuyền', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Trang HC', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Khanh', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Kiên', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Duy', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Như', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Yến Vy', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Bảo Vy', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Nhi', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Trang', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Hiền', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Lưu Thảo', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Loan', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Uyên', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Phương', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Khang', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Quỳnh', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Thu Hà', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Hà', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Duy Khanh', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Nguyễn', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Ý', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Phúc', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Quyên', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'nhi', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Tuấn', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'a Vũ', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Mỹ Như', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Trung MKT', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'Thu Thảo', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Công ty GR', 'name': 'a Hậu', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Đồng nghiệp Acacy', 'name': 'Thanh Bình', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Đồng nghiệp Acacy', 'name': 'Ánh Linh', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Đồng nghiệp Acacy', 'name': 'chị Thanh', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Đồng nghiệp Acacy', 'name': 'chồng chị Thanh', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Đồng nghiệp cô dâu', 'code': 'Đồng nghiệp Acacy', 'name': 'Mỹ Duyên', 'group': 'btnNhaGai', 'type': 'btnDongNghiep', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Bạn cô dâu', 'code': 'Cấp 2+3', 'name': 'Uyên', 'group': 'btnNhaGai', 'type': 'btnBan', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Bạn cô dâu', 'code': 'Cấp 2+3', 'name': 'Hân', 'group': 'btnNhaGai', 'type': 'btnBan', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Bạn cô dâu', 'code': 'Cấp 2+3', 'name': 'Anh Thư', 'group': 'btnNhaGai', 'type': 'btnBan', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Bạn cô dâu', 'code': 'Cấp 2+3', 'name': 'Anh Thư+1', 'group': 'btnNhaGai', 'type': 'btnBan', 'ref': 'btnVy' },
+{'quantity': 1, 'side': 'Cô dâu', 'relation': 'Bạn cô dâu', 'code': 'Cấp 2+3', 'name': 'Thy Thư', 'group': 'btnNhaGai', 'type': 'btnBan', 'ref': 'btnVy' },
+
+    ];
+    var listBa = [];
+    var listNhaTrai = [
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bà Nội', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Cô Hai', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Chú Ngọc', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Cô Tư', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bé Hân', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Chú Đức', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Cô Hóa', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bé Mi', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Chú Lan', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bo', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bé Na', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bé Quỳnh', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Chú Mì', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Cô Hiếu', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bé Như', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Boy', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Cô Dung', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      {'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bi', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+    ];
+    var listHangXom = [];
+    var listNhaGai = [];
+
+    var listCus = [];
+    setFullList();
+    filter();
+
+    $('#group-btnNhaTrai').hide();
+    // $('#group-btnNhaGai').hide();
+
+    $('#btnNhaTrai').click(function () {
+      $('#group-btnNhaTrai').hide();
+      if ($(this).is(':checked')) {
+        $('#group-btnNhaTrai').show();
+      }
+    });
+    $('#btnNhaGai').click(function () {
+      // $('#group-btnNhaGai').hide();
+      // if ($(this).is(':checked')) {
+      //   $('#group-btnNhaGai').show();
+      // }
+    });
+
+    $('.btn-check').click(function () {
+      filter();
+    });
+    $('#btnSearch').click(function () {
+      filter();
+    });
+    $('#txtKeyword').on('keyup', function (e) {
+      if (e.key === "Enter" || e.keyCode === 13) {
+        filter();
+      }
+    });
+
+    function setFullList() {
+      listCus = [];
+      listCus.push(...listQuy);
+      listCus.push(...listVy);
+      listCus.push(...listBa);
+      listCus.push(...listNhaTrai);
+      listCus.push(...listNhaGai);
+      listCus.push(...listHangXom);
+
+      $('#lbTong').text('Tổng (' + listCus.reduce((sum, item) => sum + item.quantity, 0) + ')')
+
+      let nhaTrai = listCus.filter(e => e.group == 'btnNhaTrai').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbNhaTrai').text('Nhà Trai (' + nhaTrai + ')')
+
+      let nhaGai = listCus.filter(e => e.group == 'btnNhaGai').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbNhaGai').text('Nhà Gái (' + nhaGai + ')')
+    }
+
+    function filter() {
+      setFullList();
+
+      var keyword = $('#txtKeyword').val();
+      if (keyword != "") {
+        keyword = keyword.toLowerCase();
+        listCus = listCus.filter(e => e.name.toLowerCase().includes(keyword));
+      }
+
+      //group
+      if ($('#btnNhaTrai').is(':checked')) {
+        listCus = listCus.filter(e => e.group == 'btnNhaTrai');
+      }
+      if ($('#btnNhaGai').is(':checked')) {
+        listCus = listCus.filter(e => e.group == 'btnNhaGai');
+      }
+      //ref
+      if ($('#btnQuang').is(':checked')) {
+        listCus = listCus.filter(e => e.ref == 'btnQuang');
+      }
+      if ($('#btnBa').is(':checked')) {
+        listCus = listCus.filter(e => e.ref == 'btnBa');
+      }
+      if ($('#btnNhaTrang').is(':checked')) {
+        listCus = listCus.filter(e => e.ref == 'btnNhaTrang');
+      }
+      if ($('#btnDongNai').is(':checked')) {
+        listCus = listCus.filter(e => e.ref == 'btnDongNai');
+      }
+      if ($('#btnHangXom').is(':checked')) {
+        listCus = listCus.filter(e => e.ref == 'btnHangXom');
+      }
+      //type
+      if ($('#btnGiaDinh').is(':checked')) {
+        listCus = listCus.filter(e => e.type == 'btnGiaDinh');
+      }
+      if ($('#btnDongNghiep').is(':checked')) {
+        listCus = listCus.filter(e => e.type == 'btnDongNghiep');
+      }
+      if ($('#btnBan').is(':checked')) {
+        listCus = listCus.filter(e => e.type == 'btnBan');
+      }
+
+
+      let quang = listCus.filter(e => e.ref == 'btnQuang').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbQuang').text('Quang (' + quang + ')')
+
+      let ba = listCus.filter(e => e.ref == 'btnBa');
+      $('#lbBa').text('Ba (' + ba + ')')
+
+      let nhaTrang = listCus.filter(e => e.ref == 'btnNhaTrang').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbNhaTrang').text('Nha Trang (' + nhaTrang + ')')
+
+      let dongNai = listCus.filter(e => e.ref == 'btnDongNai').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbDongNai').text('Đồng Nai (' + dongNai + ')')
+
+      let giaDinh = listCus.filter(e => e.type == 'btnGiaDinh').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbGiaDinh').text('Gia đình (' + giaDinh + ')')
+
+      let hangXom = listCus.filter(e => e.type == 'btnHangXom').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbHangXom').text('Hàng xóm (' + hangXom + ')')
+
+      let dongNghiep = listCus.filter(e => e.type == 'btnDongNghiep').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbDongNghiep').text('Đồng nghiệp (' + dongNghiep + ')')
+
+      let ban = listCus.filter(e => e.type == 'btnBan').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbBan').text('Bạn (' + ban + ')')
+
+      showList();
+    }
+
+    function showList() {
+      let html = '';
+
+      for (let index = 0; index < listCus.length; index++) {
+        let cus = listCus[index];
+        html += `<tr><td>${index + 1}</td><td>${cus.relation}</td><td>${cus.name}</td></tr>`;
+      }
+
+      $('#body1').html(html);
+    }
+  });
+</script>
