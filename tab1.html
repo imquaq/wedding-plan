@@ -70,6 +70,7 @@
                   <th>Stt</th>
                   <th>Mối quan hệ</th>
                   <th>Họ và tên</th>
+                  <th>Số lượng</th>
                 </tr>
               </thead>
               <tbody id="body1">
@@ -214,7 +215,165 @@
       { 'quantity': 1, 'side': 'Cô dâu', 'relation': 'Bạn cô dâu', 'code': 'Cấp 2+3', 'name': 'Thy Thư', 'group': 'btnNhaGai', 'type': 'btnBan', 'ref': 'btnVy' },
 
     ];
-    var listBa = [];
+    var listBa = [
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Dũng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Thanh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Chị Châu', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Chung', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Minh (già)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Vũ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Luân', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Thật', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh An', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Vinh (lớn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Uyên ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Thanh (bắp)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Minh (nhỏ)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Tuấn (đồng)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Bạn Đức', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Bạn Công', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Bạn Trung ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Nghĩa ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Lộc', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Bạn Toàn', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Hải (tiếp liệu)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Bạn Hùng ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Hùng ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Anh Vinh (hoàn chỉnh)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Vinh (nhỏ)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Thanh (đồng)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Sang (đồng)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Bảo đồng)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Bình', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Tùng (sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Tân ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Duy', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Văn', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Vương', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Thanh (sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Nghĩa (sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Trong (sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Nhựt ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Quốc', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Nhân', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Tài ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Luân', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Cần', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Châu', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Lai', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Ân (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Quỳnh (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Thiên (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Luận (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em H Trung (CVDV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Kiệt (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Sang (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Minh (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Thành (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Tiến (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Linh (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Đông (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Long (CV mới)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Quang lớn (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Quang (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Bạn Vũ (PT)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Thắng (PT)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Đức', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Sự', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Đông (sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Vy (sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Phước (sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Khánh (bé)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Bạn Khánh (Tý)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Duy (pha sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Duy (pha sơn 262)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Thăng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Chất', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Nhứt', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em,B Sơn', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Hiển', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Hải (mập)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Đức (lái xe)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Enh Bình (pk)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Tiến (pk)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em.P V Tuấn', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Thọ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Trọng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Em Thạch', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Liêm (TPDV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Thuận (TPDV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Phong (PPDV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Việt (PPDV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Nam (PP ĐT)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Tài (PPDV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'Vinh (TPDV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota', 'code': 'Toyota', 'name': 'V Tuấn (GĐDV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Anh Dũng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Anh Vũ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Chị Phương', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Anh Đạt', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Chị Thanh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Anh Long', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Huy (phụ kiện)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Minh (bảo hiểm)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Minh (kinh doanh)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Đức (phụ tùng)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Hiển (pha sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Hậu (pha sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Anh Nhường', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em nổi', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Cháu Hưng (phụ kiện)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Hiền (IT - TAF)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Hậu (lái xe)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Lan', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'T Điền', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Mỹ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Kiều', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Cháu Nhứt', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Cháu Thuấn', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Kha', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Cháu Khang', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Cháu Lý', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Cháu An', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Cháu Tấn', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Cháu Nghiêm', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Linh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Trung (cơ điện)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Tiến (sơn)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Nam (lái xe)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Nga (DV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Em Hương (DV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Trân (HCBH)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Nguyễn (BH)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Tân An)', 'code': 'Toyota LA  (Tân An)', 'name': 'Duyên (kt)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Anh Khanh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em Trí', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em Quang ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em Thành', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em Tuấn', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu. H Phúc', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Mãi', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Bình', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Quang ', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Đô', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Tính', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Nhân', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu .T Phúc', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Khoa', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em An', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Ngoan', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em Đồng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Như', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em Vân', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Hằng', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Mai', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Liễu', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Cháu Rica', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em, K Anh', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em Thiện (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+      { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Toyota LA (Đức Hòa)', 'code': 'Toyota LA  (Đức Hòa)', 'name': 'Em Bình (CV)', 'group': 'btnNhaTrai', 'type': 'btnDongNghiep', 'ref': 'btnBa' },
+
+    ];
     var listNhaTrai = [
       { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bà Nội', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
       { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Cô Hai', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
@@ -234,9 +393,14 @@
       { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Boy', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
       { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Cô Dung', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
       { 'quantity': 1, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Bi', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnNhaTrang' },
+      { 'quantity': 7, 'side': 'Chú rể', 'relation': 'Họ hàng', 'code': 'Họ Hàng', 'name': 'Đồng Nai', 'group': 'btnNhaTrai', 'type': 'btnGiaDinh', 'ref': 'btnDongNai' },
     ];
-    var listHangXom = [];
-    var listNhaGai = [];
+    var listHangXom = [
+      { 'quantity': 11, 'side': 'Chú rể', 'relation': 'Hàng xóm', 'code': 'Họ Hàng', 'name': 'Hàng xóm', 'group': 'btnNhaTrai', 'type': 'btnBan', 'ref': 'btnHangXom' },
+    ];
+    var listNhaGai = [
+      { 'quantity': 50, 'side': 'Cô dâu', 'relation': 'Nhà gái', 'code': 'Nhà gái', 'name': 'Nhà gái', 'group': 'btnNhaGai', 'type': 'btnGiaDinh', 'ref': '' },
+    ];
 
     var listCus = [];
     setFullList();
@@ -280,6 +444,8 @@
       listCus.push(...listNhaTrai);
       listCus.push(...listNhaGai);
       listCus.push(...listHangXom);
+
+      console.log(listVy.reduce((sum, item) => sum + item.quantity, 0));
 
       $('#lbTong').text('Tổng (' + listCus.reduce((sum, item) => sum + item.quantity, 0) + ')')
 
@@ -333,7 +499,7 @@
         listCus = listCus.filter(e => e.type == 'btnBan');
       }
 
-
+      // Ref
       let quang = listCus.filter(e => e.ref == 'btnQuang').reduce((sum, item) => sum + item.quantity, 0);
       $('#lbQuang').text('Quang (' + quang + ')')
 
@@ -346,11 +512,12 @@
       let dongNai = listCus.filter(e => e.ref == 'btnDongNai').reduce((sum, item) => sum + item.quantity, 0);
       $('#lbDongNai').text('Đồng Nai (' + dongNai + ')')
 
+      let hangXom = listCus.filter(e => e.ref == 'btnHangXom').reduce((sum, item) => sum + item.quantity, 0);
+      $('#lbHangXom').text('Hàng xóm (' + hangXom + ')')
+
+      // Type
       let giaDinh = listCus.filter(e => e.type == 'btnGiaDinh').reduce((sum, item) => sum + item.quantity, 0);
       $('#lbGiaDinh').text('Gia đình (' + giaDinh + ')')
-
-      let hangXom = listCus.filter(e => e.type == 'btnHangXom').reduce((sum, item) => sum + item.quantity, 0);
-      $('#lbHangXom').text('Hàng xóm (' + hangXom + ')')
 
       let dongNghiep = listCus.filter(e => e.type == 'btnDongNghiep').reduce((sum, item) => sum + item.quantity, 0);
       $('#lbDongNghiep').text('Đồng nghiệp (' + dongNghiep + ')')
@@ -366,7 +533,7 @@
 
       for (let index = 0; index < listCus.length; index++) {
         let cus = listCus[index];
-        html += `<tr><td>${index + 1}</td><td>${cus.relation}</td><td>${cus.name}</td></tr>`;
+        html += `<tr><td>${index + 1}</td><td>${cus.relation}</td><td>${cus.name}</td><td>${cus.quantity}</td></tr>`;
       }
 
       $('#body1').html(html);
