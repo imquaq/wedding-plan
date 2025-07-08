@@ -1,4 +1,13 @@
-<div class="row" style="height: 2000px;">
+<nav class="nav nav-pills flex-column flex-sm-row">
+    <button type="button" class="flex-sm-fill text-sm-center nav-link tab3-main" data-tabid="1">
+        <i class="fa-solid fa-chair"></i> Sơ đồ
+    </button>
+    <button type="button" class="flex-sm-fill text-sm-center nav-link tab3-main" data-tabid="2">
+        <i class="fa-solid fa-file-contract"></i> Hợp đồng
+    </button>
+</nav>
+
+<div class="row mt-3" style="height: 2000px;">
     <div class="col-md-12">
         <div id="content-tab3"></div>
     </div>
@@ -6,8 +15,31 @@
 
 <script>
     $(function () {
+        $('.tab3-main').first().addClass('active');
         $.get('sodo.html', function (data) {
             $('#content-tab3').html(data);
         });
+
+        $('.tab3-main').click(function () {
+            var id = $(this).attr('data-tabid');
+            $('.tab3-main').removeClass('active')
+
+            $('#content-tab3').html('');
+            if (id) {
+                $(this).addClass('active');
+
+                if (id == 1) {
+                    $.get('sodo.html', function (data) {
+                        $('#content-tab3').html(data);
+                    });
+                }
+                else if (id == 2) {
+                    $.get('hopdong.html', function (data) {
+                        $('#content-tab3').html(data);
+                    });
+                }
+            }
+        });
+
     });
 </script>

@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <title>Wedding Plan</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -37,30 +39,11 @@
     </div>
 
     <div id="div-content" style="display: none;">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item" id="navItem1">
-                <button type="button" class="nav-link" data-tabid="1">Danh sách khách mời</button>
-              </li>
-              <li class="nav-item" id="navItem2">
-                <button type="button" class="nav-link" data-tabid="2">Rước dâu</button>
-              </li>
-              <li class="nav-item" id="navItem3">
-                <button type="button" class="nav-link" data-tabid="3">Nhà hàng</button>
-              </li>
-              <li class="nav-item" id="navItem4">
-                <button type="button" class="nav-link" data-tabid="4">Lịch trình</button>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <nav class="nav nav-pills flex-column flex-sm-row">
+        <button type="button" class="flex-sm-fill text-sm-center nav-link tab-main" data-tabid="1"><i
+            class="fa-solid fa-address-book"></i> Danh sách khách mời</button>
+        <button type="button" class="flex-sm-fill text-sm-center nav-link tab-main" data-tabid="2"><i class="fa-solid fa-house-user"></i> Rước dâu</button>
+        <button type="button" class="flex-sm-fill text-sm-center nav-link tab-main" data-tabid="3"><i class="fa-solid fa-bell-concierge"></i> Nhà hàng</button>
       </nav>
 
       <div class="row">
