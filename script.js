@@ -1,4 +1,7 @@
 $(function () {
+    $('#div-login').show();
+    $('#div-content').hide();
+
     $('.nav-link').first().addClass('active');
     $.get('tab1.html', function (data) {
         $('#content-tab').html(data);
@@ -19,16 +22,29 @@ $(function () {
         }
     });
 
-    // $('.nav-link').click(function () {
-    //     var id = $(this).attr('data-tabid');
-    //     $('.nav-link').removeClass('active');
+    $('#submit-login').click(function () {
+        login();
+    });
+    $('#txtPassword').on('keyup', function (e) {
+        if (e.key === "Enter" || e.keyCode === 13) {
+            login();
+        }
+    });
 
-    //     $('#content-tab').html('');
-    //     if (id) {
-    //         $(this).addClass('active');
-    //         $.get('tab' + id + '.html', function (data) {
-    //             $('#content-tab').html(data);
-    //         });
-    //     }
-    // });
+
+    function login() {
+        var password = $('#txtPassword').val();
+        if (password !== "") {
+            var listPass = [
+                "phucnv",
+                "cuongnp",
+                "quangnp",
+                "vynnt",
+            ];
+            if (listPass.includes(password.toLowerCase())) {
+                $('#div-login').hide();
+                $('#div-content').show();
+            }
+        }
+    }
 });
