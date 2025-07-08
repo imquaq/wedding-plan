@@ -445,8 +445,6 @@
       listCus.push(...listNhaGai);
       listCus.push(...listHangXom);
 
-      console.log(listVy.reduce((sum, item) => sum + item.quantity, 0));
-
       $('#lbTong').text('Tổng (' + listCus.reduce((sum, item) => sum + item.quantity, 0) + ')')
 
       let nhaTrai = listCus.filter(e => e.group == 'btnNhaTrai').reduce((sum, item) => sum + item.quantity, 0);

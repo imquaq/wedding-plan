@@ -1,1 +1,13 @@
-3
+<div class="row" style="height: 2000px;">
+    <div class="col-md-12">
+        <div id="content-tab3"></div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $.get('sodo.html', function (data) {
+            $('#content-tab3').html(data);
+        });
+    });
+</script>
