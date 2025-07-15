@@ -42,7 +42,6 @@ $(function () {
             var listPass = [
                 "phucnv",
                 "cuongnp",
-                "quangnp",
                 "vynnt",
             ];
             if (listPass.includes(password.toLowerCase())) {
